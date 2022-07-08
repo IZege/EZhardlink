@@ -1,7 +1,7 @@
 import os
 
-BASE_PATH = 'E:\影视'
-LINK_PATH = 'E:\link'          # 建立链接基础地址
+BASE_PATH = '原始根目录'
+LINK_PATH = '目的根目录'
 
 def list_abs_dir(dir):
     '''
@@ -13,7 +13,7 @@ def link_start(dir):
     '''
     建立硬链接
     '''
-    # 去掉 dir 卷标
+    # 去掉卷标
     _, split_dir = os.path.splitdrive(dir)
 
     # 建立硬链接对应的目录地址 
@@ -26,11 +26,7 @@ def link_start(dir):
     dir_list = []
     
     # 手动添加过滤表
-    filer_list = ['[AI-Raws][劇場版 空の境界 - The Garden of sinners -][MOVIE 01-09+SP Fin][BDRip][MKV]', '[AI-Raws] ペルソナ3 PV・CM集 (BD HEVC 1920x1080 yuv444p10le FLAC)[F81577CD]', \
-                  '[KTXP&philosophy-raws&VCB-Studio] Rakuen Tsuihou -Expelled From Paradise- [Hi10p_1080p]', '香港时代电影', \
-                  'Ghost in the Shell 2017 TW 2D+3D+bonus 3Disc Blu-ray AVC AtmosTrueHD 7.1 -TTG', '[Magic-Raws] 宇宙战舰大和号2205 新的旅程', \
-                  '爱，死亡和机器人.Love.Death.and.Robots.2022.S03.1080p.NF.WEB-DL.H265.10bit.HDR.DDP5.1.Atmos-LeagueNF', '爱，死亡和机器人S01.Love.Death.and.Robots.2019.1080p.WEB-DL.x265.AC3￡cXcY@FRDS', \
-                  '爱，死亡和机器人S02.Love.Death.and.Robots.2021.1080p.WEB-DL.x265.AC3￡cXcY@FRDS']
+    filer_list = ['需要过滤的文件夹名或文件名', '用逗号分隔']
 
     # 移除需要过滤的文件和目录
     for i in list:
@@ -58,5 +54,4 @@ def link_start(dir):
         link_start(dir)
 
 if __name__ == '__main__':
-    # 从当前目录下开始
     link_start(BASE_PATH)
